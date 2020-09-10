@@ -1,0 +1,13 @@
+.project
+.classpath
+.gradle
+gradle
+.settings
+/*/bin/
+build
+/*/*.iml
+*.iml
+*.idea
+/bin/
+/*/node_modules/
+.git
