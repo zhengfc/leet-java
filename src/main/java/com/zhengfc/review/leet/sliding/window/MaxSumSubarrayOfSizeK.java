@@ -7,8 +7,8 @@ public class MaxSumSubarrayOfSizeK {
 
 	int solution1(int[] arr) {
 		int maxSum = maxSubSum(arr, 1);
-		for (int subSize = 2; subSize <= arr.length; subSize++) {
-			int subSum = maxSubSum(arr, subSize);
+		for (int sizeK = 2; sizeK <= arr.length; sizeK++) {
+			int subSum = maxSubSum(arr, sizeK);
 			if (subSum > maxSum)
 				maxSum = subSum;
 		}
@@ -16,16 +16,16 @@ public class MaxSumSubarrayOfSizeK {
 	}
 
 	/**
-	 * 长度为subSize数组的最大和
+	 * 长度为sizeK数组的最大和
 	 * 
 	 * @param arr
-	 * @param subSize
+	 * @param sizeK
 	 * @return
 	 */
-	private int maxSubSum(int[] arr, int subSize) {
-		int maxOne = subSum(arr, 0, subSize);
-		for (int i = 1; i < arr.length - subSize + 1; i++) {
-			int sum = subSum(arr, i, subSize + i);
+	private int maxSubSum(int[] arr, int sizeK) {
+		int maxOne = subSum(arr, 0, sizeK);
+		for (int i = 1; i < arr.length - sizeK + 1; i++) {
+			int sum = subSum(arr, i, sizeK + i);
 			if (sum > maxOne) {
 				maxOne = sum;
 			}
