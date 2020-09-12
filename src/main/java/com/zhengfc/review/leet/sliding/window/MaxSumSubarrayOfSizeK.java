@@ -2,7 +2,19 @@ package com.zhengfc.review.leet.sliding.window;
 
 public class MaxSumSubarrayOfSizeK {
 	public int maxSubarray(int[] arr) {
-		return solution1(arr);
+		//return solution1(arr);
+		return solution2(arr);
+	}
+
+	int solution2(int[] arr) {
+		int length = arr.length;
+		int[] curMax = new int[length];
+		int max = arr[0];
+		for (int i = 1; i < length; i++) {
+			curMax[i] = Math.max(curMax[i - 1] + arr[i], arr[i]);
+			max = Math.max(max, curMax[i]);
+		}
+		return max;
 	}
 
 	int solution1(int[] arr) {
