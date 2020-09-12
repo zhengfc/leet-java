@@ -3,6 +3,7 @@
 .gradle
 gradle
 .settings
+.vscode
 /*/bin/
 build
 /*/*.iml
