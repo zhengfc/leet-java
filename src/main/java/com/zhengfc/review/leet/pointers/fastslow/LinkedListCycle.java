@@ -5,17 +5,17 @@ import java.util.HashSet;
 import com.zhengfc.review.leet.ListNode;
 
 public class LinkedListCycle {
-	public boolean hasCycle(ListNode node) {
+	public boolean hasCycle(ListNode head) {
 //		return fastSlowSolution(node);
-		return setSolution(node);
+		return setSolution(head);
 	}
 
-	boolean fastSlowSolution(ListNode node) {
-		if (node == null || node.getNext() == null) {
+	boolean fastSlowSolution(ListNode head) {
+		if (head == null || head.getNext() == null) {
 			return false;
 		}
-		ListNode slow = node;
-		ListNode fast = node.getNext();
+		ListNode slow = head;
+		ListNode fast = head.getNext();
 		while (slow.getVal() != fast.getVal()) {
 			if (fast == null || fast.getNext() == null)
 				return false;
@@ -25,13 +25,14 @@ public class LinkedListCycle {
 		return true;
 	}
 
-	boolean setSolution(ListNode node) {
+	boolean setSolution(ListNode head) {
 		var vals = new HashSet<>();
-		while (node.getNext() != null) {
-			if (vals.contains(node.getVal())) {
+		while (head.getNext() != null) {
+			if (vals.contains(head.getVal())) {
 				return true;
 			} else {
-				vals.add(node.getVal());
+				vals.add(head.getVal());
+				head = head.getNext();
 			}
 		}
 		return false;
