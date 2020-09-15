@@ -29,6 +29,7 @@ public class MiddleLinkedListTest {
 		n5.setNext(n6);
 		ListNode e6 = new ListNode(6);
 		e5.setNext(e6);
+		
 		assertTrue(ListNode.equals(e4, mll.middle(n1)));
 	}
 }
