@@ -16,11 +16,11 @@ public class LinkedListCycleTest {
 		ListNode n2 = new ListNode(2);
 		ListNode n3 = new ListNode(0);
 		ListNode n4 = new ListNode(-4);
-		n1.setNext(n2).setNext(n3).setNext(n4).setNext(n2);
+		n1.setNext(n2.setNext(n3.setNext(n4.setNext(n2))));
 
 		ListNode m1 = new ListNode(1);
 		ListNode m2 = new ListNode(2);
-		m1.setNext(m2).setNext(m1);
+		m1.setNext(m2.setNext(m1));
 
 		ListNode k1 = new ListNode(1);
 
