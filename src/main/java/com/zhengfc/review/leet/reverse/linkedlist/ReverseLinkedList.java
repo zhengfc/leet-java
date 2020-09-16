@@ -6,7 +6,17 @@ import com.zhengfc.review.leet.ListNode;
 
 public class ReverseLinkedList {
 	public ListNode reverse(ListNode head) {
-		return forceSolution(head);
+//		return forceSolution(head);
+		return recursion(head);
+	}
+
+	ListNode recursion(ListNode head) {
+		if (head == null || head.getNext() == null)
+			return head;
+		ListNode newNode = recursion(head.getNext());
+		head.getNext().setNext(head);
+		head.setNext(null);
+		return newNode;
 	}
 
 	ListNode forceSolution(ListNode head) {
