@@ -1,4 +1,4 @@
-package com.zhengfc.review;
+package com.zhengfc.review.leet;
 
 public class Swap {
 	public static void swapInt(int[] arr, int i, int j) {

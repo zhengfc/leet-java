@@ -3,7 +3,7 @@ package com.zhengfc.review.leet.cyclic.sort;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import com.zhengfc.review.Swap;
+import com.zhengfc.review.leet.Swap;
 
 import lombok.extern.slf4j.Slf4j;
 
