@@ -1,11 +1,37 @@
 package com.zhengfc.review.leet.cyclic.sort;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
+import com.zhengfc.review.Swap;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class MissingNumber {
 	public int missingOne(int[] arr) {
 //		return setSolution(arr);
-		return sumSolution(arr);
+//		return sumSolution(arr);
+		return cyclicSolution(arr);
+	}
+
+	int cyclicSolution(int[] arr) {
+		int n = arr.length;
+		int i = 0;
+		while (i < n) {
+			int j = arr[i];
+			if (j < n && i != j) {
+				Swap.swapInt(arr, i, j);
+			} else {
+				i++;
+			}
+		}
+		log.info("cyclic sortArr: {}", Arrays.toString(arr));
+		for (int x = 0; x < n; x++) {
+			if (arr[x] != x)
+				return x;
+		}
+		return n;
 	}
 
 	int sumSolution(int[] arr) {
