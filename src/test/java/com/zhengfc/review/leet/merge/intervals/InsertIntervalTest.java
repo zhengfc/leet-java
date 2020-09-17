@@ -1,14 +1,9 @@
 package com.zhengfc.review.leet.merge.intervals;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.Arrays;
+import static org.junit.Assert.assertArrayEquals;
 
 import org.junit.Test;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public class InsertIntervalTest {
 
 	InsertInterval ii = new InsertInterval();
@@ -35,15 +30,10 @@ public class InsertIntervalTest {
 		int[] insert5 = { 2, 7 };
 		int[][] exp5 = { { 1, 7 } };
 
-		log.info("act1: {}", Arrays.deepToString(ii.insert(arr1, insert1)));
-		log.info("act2: {}", Arrays.deepToString(ii.insert(arr2, insert2)));
-		log.info("act3: {}", Arrays.deepToString(ii.insert(arr3, insert3)));
-		log.info("act4: {}", Arrays.deepToString(ii.insert(arr4, insert4)));
-		log.info("act5: {}", Arrays.deepToString(ii.insert(arr5, insert5)));
-		assertTrue(Arrays.deepEquals(exp1, ii.insert(arr1, insert1)));
-		assertTrue(Arrays.deepEquals(exp2, ii.insert(arr2, insert2)));
-		assertTrue(Arrays.deepEquals(exp3, ii.insert(arr3, insert3)));
-		assertTrue(Arrays.deepEquals(exp4, ii.insert(arr4, insert4)));
-		assertTrue(Arrays.deepEquals(exp5, ii.insert(arr5, insert5)));
+		assertArrayEquals(exp1, ii.insert(arr1, insert1));
+		assertArrayEquals(exp2, ii.insert(arr2, insert2));
+		assertArrayEquals(exp3, ii.insert(arr3, insert3));
+		assertArrayEquals(exp4, ii.insert(arr4, insert4));
+		assertArrayEquals(exp5, ii.insert(arr5, insert5));
 	}
 }
