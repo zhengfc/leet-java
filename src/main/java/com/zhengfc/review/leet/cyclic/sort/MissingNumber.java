@@ -3,7 +3,7 @@ package com.zhengfc.review.leet.cyclic.sort;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import com.zhengfc.review.leet.Swap;
+import com.zhengfc.review.leet.Utils;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,7 +21,7 @@ public class MissingNumber {
 		while (i < n) {
 			int j = arr[i];
 			if (j < n && i != j) {
-				Swap.swapInt(arr, i, j);
+				Utils.swapInt(arr, i, j);
 			} else {
 				i++;
 			}

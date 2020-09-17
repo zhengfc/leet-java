@@ -1,8 +1,9 @@
 package com.zhengfc.review.leet.topk;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.PriorityQueue;
+
+import com.zhengfc.review.leet.Utils;
 
 public class TopKNumbers {
 	public int[] topK(int[] nums, int k) {
@@ -11,17 +12,7 @@ public class TopKNumbers {
 	}
 
 	int[] priorityQueueSolution(int[] nums, int k) {
-		var priorityQueue = new PriorityQueue<Integer>(new Comparator<Integer>() {
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				if (o1 > o2)
-					return -1;
-				else if (o1 < o2)
-					return 1;
-				return 0;
-			}
-
-		});
+		var priorityQueue = new PriorityQueue<Integer>(Utils.COMPARATOR);
 		for (int e : nums)
 			priorityQueue.add(e);
 		int[] retNums = new int[k];
