@@ -53,35 +53,5 @@ public class MaximizeCapital {
 		private int id;
 		private int profit;
 		private int capital;
-
-		private MaximizeCapital getEnclosingInstance() {
-			return MaximizeCapital.this;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Project other = (Project) obj;
-			if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
-				return false;
-			if (id != other.id)
-				return false;
-			return true;
-		}
-
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + getEnclosingInstance().hashCode();
-			result = prime * result + id;
-			return result;
-		}
-
 	}
 }
