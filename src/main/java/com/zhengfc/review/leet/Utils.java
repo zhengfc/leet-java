@@ -12,11 +12,7 @@ public class Utils {
 	public static final Comparator<Integer> COMPARATOR = new Comparator<Integer>() {
 		@Override
 		public int compare(Integer o1, Integer o2) {
-			if (o1 > o2)
-				return -1;
-			else if (o1 < o2)
-				return 1;
-			return 0;
+			return Integer.compare(o2, o1);
 		}
 	};
 }

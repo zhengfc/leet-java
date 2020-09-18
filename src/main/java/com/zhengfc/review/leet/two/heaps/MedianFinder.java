@@ -14,6 +14,10 @@ public class MedianFinder {
 		else
 			large.add(num);
 
+		reblance();
+	}
+
+	private void reblance() {
 		if (small.size() > large.size())
 			large.add(small.poll());
 		else if (small.size() + 1 < large.size())
