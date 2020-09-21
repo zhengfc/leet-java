@@ -36,6 +36,7 @@ public class BfsTraversalTest {
 
 		var exp4 = 2;
 		assertEquals(exp4, bfs.minDepth(node1));
+		bfs.bfsWithQueue(node1);
 	}
 
 }

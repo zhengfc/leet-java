@@ -3,6 +3,7 @@ package com.zhengfc.review.leet.tree.traversal.bfs;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -73,6 +74,22 @@ public class BfsTraversal {
 		int x = bfsMinLevel(node.getLeft(), level);
 		int y = bfsMinLevel(node.getRight(), level);
 		return Math.min(x, y);
+	}
+
+	void bfsWithQueue(TreeNode node) {
+		if (node == null)
+			return;
+		var queue = new LinkedList<TreeNode>();
+		queue.add(node);
+		while (!queue.isEmpty()) {
+			TreeNode treeNode = queue.poll();
+			log.info("node val: {}", treeNode.getVal());
+			if (treeNode.getLeft() != null)
+				queue.add(treeNode.getLeft());
+			if (treeNode.getRight() != null)
+				queue.add(treeNode.getRight());
+		}
+
 	}
 
 }
