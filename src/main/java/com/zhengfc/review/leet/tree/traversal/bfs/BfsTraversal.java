@@ -2,6 +2,7 @@ package com.zhengfc.review.leet.tree.traversal.bfs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,12 +14,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BfsTraversal {
 	public List<List<Integer>> levelOrder(TreeNode root) {
-		Map<Integer, List<Integer>> bfsMap = new HashMap<>();
+		Map<Integer, List<Integer>> bfsMap = new LinkedHashMap<>();
 		bfs(root, bfsMap, 0);
 		log.info("map result: {}", bfsMap);
 
 		var result = new ArrayList<List<Integer>>();
-		bfsMap.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEachOrdered(e -> result.add(e.getValue()));
+		bfsMap.entrySet().stream().forEach(e -> result.add(e.getValue()));
 		return result;
 	}
 
