@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.zhengfc.review.leet.TreeNode;
+import com.zhengfc.review.leet.Utils;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,8 +18,17 @@ public class BfsTraversal {
 		log.info("map result: {}", bfsMap);
 
 		var result = new ArrayList<List<Integer>>();
-		for (Integer k : bfsMap.keySet())
-			result.add(k, bfsMap.get(k));
+		bfsMap.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEachOrdered(e -> result.add(e.getValue()));
+		return result;
+	}
+
+	public List<List<Integer>> reverseLevelOrder(TreeNode root) {
+		Map<Integer, List<Integer>> bfsMap = new HashMap<>();
+		bfs(root, bfsMap, 0);
+		log.info("map result: {}", bfsMap);
+
+		var result = new ArrayList<List<Integer>>();
+		bfsMap.entrySet().stream().sorted(Map.Entry.comparingByKey(Utils.COMPARATOR)).forEachOrdered(e -> result.add(e.getValue()));
 		return result;
 	}
 

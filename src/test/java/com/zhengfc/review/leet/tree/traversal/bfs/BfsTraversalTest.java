@@ -27,7 +27,9 @@ public class BfsTraversalTest {
 		var level1 = Arrays.asList(9, 20);
 		var level2 = Arrays.asList(15, 7);
 		var exp = Arrays.asList(level0, level1, level2);
+		var exp2 = Arrays.asList(level2, level1, level0);
 		assertEquals(exp, bfs.levelOrder(node1));
+		assertEquals(exp2, bfs.reverseLevelOrder(node1));
 	}
 
 }
