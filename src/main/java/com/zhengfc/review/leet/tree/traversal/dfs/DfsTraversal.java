@@ -18,13 +18,23 @@ public class DfsTraversal {
 			return sum == 0;
 		return hasPathSum(root.getLeft(), sum) || hasPathSum(root.getRight(), sum);
 	}
-
-	public List<List<Integer>> allPath4Sum(TreeNode node, int sum) {
+	
+	public List<List<Integer>> pathSumII(TreeNode node, int sum) {
 		var preList = new ArrayList<Integer>();
 		var plist = new ArrayList<List<Integer>>();
 		recursive(node, sum, preList, plist);
 		log.info("plist: {}", plist);
 		return plist;
+	}
+
+	public int pathSumIII(TreeNode node, int sum) {
+		return findPathSum(node, sum) + findPathSum(node.getLeft(), sum) + findPathSum(node.getRight(), sum);
+	}
+
+	int findPathSum(TreeNode node, int sum) {
+		if (node == null)
+			return 0;
+		return node.getVal() == sum ? 1 : findPathSum(node.getLeft(), sum - node.getVal()) + findPathSum(node.getRight(), sum - node.getVal());
 	}
 
 	void recursive(TreeNode node, int sum, List<Integer> preList, List<List<Integer>> plist) {
