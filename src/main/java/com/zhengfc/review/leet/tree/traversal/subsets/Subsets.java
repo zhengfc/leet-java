@@ -8,6 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Subsets {
 	public List<List<Integer>> subsets(int[] nums) {
+//		return bitSolution(nums);
+		return dfs(nums);
+	}
+
+	List<List<Integer>> bitSolution(int[] nums) {
 		List<List<Integer>> result = new ArrayList<>();
 		int size = 1 << nums.length;
 		for (int i = 0; i < size; i++) {
@@ -29,6 +34,24 @@ public class Subsets {
 	private int valueAtBit(int num, int i) {
 		log.info("num: {}, i: {}", num, i);
 		return (num >> i) & 1;
+	}
+
+	List<List<Integer>> dfs(int[] nums) {
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		dfsSolution(0, nums, new ArrayList<Integer>(), result);
+		return result;
+	}
+
+	void dfsSolution(int index, int[] nums, List<Integer> subList, List<List<Integer>> result) {
+		if (index == nums.length) {
+			result.add(subList);
+			return;
+		}
+		dfsSolution(index + 1, nums, subList, result);// 不取当前数直接往下递归
+		List<Integer> newSub = new ArrayList<Integer>();
+		newSub.addAll(subList);// 复制一份List对象
+		newSub.add(nums[index]);// 取当前数
+		dfsSolution(index + 1, nums, newSub, result);
 	}
 
 }

@@ -16,7 +16,8 @@ public class SubsetsTest {
 	@Test
 	public void testSubsets() {
 		int[] nums = { 1, 2, 3 };
-		int[][] expArr = { {}, { 1 }, { 2 }, { 1, 2 }, { 3 }, { 1, 3 }, { 2, 3 }, { 1, 2, 3 } };
+//		int[][] expArr = { {}, { 1 }, { 2 }, { 1, 2 }, { 3 }, { 1, 3 }, { 2, 3 }, { 1, 2, 3 } };
+		int[][] expArr = { {}, { 3 }, { 2 }, { 2, 3 }, { 1 }, { 1, 3 }, { 1, 2 }, { 1, 2, 3 } };
 		var exp = new ArrayList<List<Integer>>();
 		for (int[] subset : expArr) {
 			List<Integer> one = new ArrayList<>();
