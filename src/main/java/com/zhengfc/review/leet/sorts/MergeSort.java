@@ -34,9 +34,7 @@ public class MergeSort {
 			} else if (indexSorted1 == sorted1.length) {
 				System.arraycopy(sorted2, indexSorted2, sorted, i, sorted2.length - indexSorted2);
 				return sorted;
-			}
-
-			if (sorted1[indexSorted1] <= sorted2[indexSorted2]) {
+			} else if (sorted1[indexSorted1] <= sorted2[indexSorted2]) {
 				sorted[i] = sorted1[indexSorted1];
 				indexSorted1++;
 			} else {
