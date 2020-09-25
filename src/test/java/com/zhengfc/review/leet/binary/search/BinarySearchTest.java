@@ -10,7 +10,7 @@ public class BinarySearchTest {
 	@Test
 	public void testFindNumber() {
 		int[] nums = { -1, 0, 3, 5, 9, 12 };
-		assertEquals(4, bs.findNumber(nums, 9));
-		assertEquals(-1, bs.findNumber(nums, 2));
+		assertEquals(4, bs.search(nums, 9));
+		assertEquals(-1, bs.search(nums, 2));
 	}
 }

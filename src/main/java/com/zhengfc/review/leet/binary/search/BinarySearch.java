@@ -6,19 +6,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class BinarySearch {
-	public int findNumber(int[] nums, int input) {
-		return bsFind(nums, input);
-	}
-
-	int bsFind(int[] nums, int input) {
-		if (nums.length == 1 && nums[0] != input)
+	public int search(int[] nums, int target) {
+		if (nums == null || nums.length == 0)
+			return -1;
+		else if (nums.length == 1 && nums[0] != target)
 			return -1;
 		int mid = nums.length / 2;
-		if (nums[mid] < input) {
-			int y = findNumber(Arrays.copyOfRange(nums, mid + 1, nums.length), input);
+		if (nums[mid] < target) {
+			int y = search(Arrays.copyOfRange(nums, mid + 1, nums.length), target);
 			return y == -1 ? -1 : mid + 1 + y;
-		} else if (nums[mid] > input) {
-			return findNumber(Arrays.copyOfRange(nums, 0, mid), input);
+		} else if (nums[mid] > target) {
+			return search(Arrays.copyOfRange(nums, 0, mid), target);
 		} else {
 			return mid;
 		}
@@ -27,6 +25,6 @@ public class BinarySearch {
 	public static void main(String[] args) {
 		BinarySearch bs = new BinarySearch();
 		int[] nums = { -1, 0, 3, 5, 9, 12 };
-		log.info("index: {}", bs.findNumber(nums, 3));
+		log.info("index: {}", bs.search(nums, 13));
 	}
 }
