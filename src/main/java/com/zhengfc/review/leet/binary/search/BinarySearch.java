@@ -25,10 +25,11 @@ public class BinarySearch {
 	int findBitonicMax(int[] nums) {
 		if (nums.length == 1)
 			return nums[0];
-		int mid = nums.length / 2;
-		if (nums.length == 2)
+		else if (nums.length == 2)
 			return Math.max(nums[0], nums[1]);
-		else if (nums[mid] > nums[mid - 1] && nums[mid] < nums[mid + 1])
+		
+		int mid = nums.length / 2;
+		if (nums[mid] > nums[mid - 1] && nums[mid] < nums[mid + 1])
 			return findBitonicMax(Arrays.copyOfRange(nums, mid, nums.length));
 		else if (nums[mid] < nums[mid - 1] && nums[mid] > nums[mid + 1])
 			return findBitonicMax(Arrays.copyOfRange(nums, 0, mid));
